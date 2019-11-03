@@ -1,0 +1,23 @@
+
+SPI:
+
+hay que definir el pin de cada elemento:
+
+#define PIN_NUM_MISO 27  --> es el p27 en el NodeMCU
+#define PIN_NUM_MOSI 14 --> es el p14 en el NodeMCU
+#define PIN_NUM_CLK  12 --> es el p12 en el NodeMCU
+#define PIN_NUM_CS    15 --> es el p15 en el NodeMCU
+
+Pasos:
+
+inicializar el bus SPI --> con structura de buscongif
+
+add device --> con estructura device y elemento SPI
+
+(en el ejemplo) --> buffer init --> cargo datos en el buffer de tx
+
+transaction --> hago un objeto de transaccion y le meto el buffer de tx y de rx
+
+polling trasaction --> le paso el SPi y el objeto t --> va a leer del t y va a escribir en el t posteriormente (si es que recive algo)
+
+

@@ -1,0 +1,130 @@
+Teoria Socket:
+
+
+--------------------SERVER-----------------------------------------------------------------
+
+
+Socket: (Para cliente y server)---------------------------------------------------------------
+
+int socket( int domain, int type, int protocol);
+
+domain: ipv4 --> AF_INET
+type: TCP --> stream
+protocol: 0 --> no hace nada
+
+return --> file descriptor --> FD
+
+==> se creo el Socket
+
+en ESP:
+
+int listen_sock = socket(addr_family, SOCK_STREAM, ip_protocol);
+
+addr_family = AF_INET
+type: SOCK_STREAM
+ip_protocol: IPPROTO_IP
+
+Bind: (Para server unicamente)----------------------------------------------------------------
+
+Le asigna ip y puerto local al socket ya creado
+
+int bind(int socket, struct sockaddr* address, socklen_t adress_len);
+
+socket: FD del primer paso
+adress: contiene los campos IP y puerto --> va a depender de el tipo de "domain"/"adrr family" que elegi antes
+adress len: el tamaño de la estructura anterior
+
+
+
+en ESP:
+int err = bind(listen_sock,struct sockaddr *&dest_addr, sizeof(dest_addr));
+ 
+listen_sock= FD que salio del socket() 
+struct sockaddr_in dest_addr;
+	dest_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+        dest_addr.sin_family = AF_INET;
+        dest_addr.sin_port = htons(PORT);
+Listen: -----------------------------------------------------------------------------------
+
+marca al socket como pasivo para avilitar que acepte conexiones entrantes --> escuchar: listo para recibir un conect
+
+int listen(int socket, int backlog);
+
+socket: es el FD del socket
+backlog: cantidad de peticiones que va a almacenar mientras atienda un peido
+
+return: para verificar error
+
+
+en ESP:
+
+err = listen(listen_sock, 1);
+
+
+Accept: -----------------------------------------------------------------------------------
+
+acepta un listen que proviene de un cliente y devuelve otro nuevo
+file descriptor FD' que describe la conexion del cliente en especifico que se conecto
+
+int accept(int socket, struct csdcdscsd, address_len);
+
+return: es el FD' de un nuevo " socket' " que es creado -->  " puerto+Ip del cliente + puerto+Ip del server "
+
+==> este nuevo socket no es pasivo, sino que esta activado para recibir y mandar datos --> este socket no esta escuchando por nuevas conexiones
+obs: cada uno de estos socket tiene un --> " puerto+Ip del cliente + puerto+Ip del server "  que es particular - >NO puede haber otro socket igual
+
+
+en ESP:
+
+int sock = accept(listen_sock, (struct sockaddr *)&source_addr, &addr_len);
+
+sock es el nuevo FD'
+
+Read() y Write() -------------------------------------------------------------------------
+
+son funciones genrales que leen y escriben
+
+Recv() y Send() --------------------------------------------------------------------------
+
+son funciones iguales a Read y Write pero tienen un campo mas para un FLag, no aporta demaciado
+
+
+
+--------------------CLIENTE-----------------------------------------------------------------
+
+Socket --> connect 
+
+Socket:------------------------------------------------------------------------------------
+
+idem del Server
+
+Connect: ----------------------------------------------------------------------------------
+int connect(int socket, struct sockaddr *&dest_addr
+
+Read() y Write() -------------------------------------------------------------------------
+
+son funciones genrales que leen y escriben
+
+Recv() y Send() --------------------------------------------------------------------------
+
+son funciones iguales a Read y Write pero tienen un campo mas para un FLag, no aporta demaciado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

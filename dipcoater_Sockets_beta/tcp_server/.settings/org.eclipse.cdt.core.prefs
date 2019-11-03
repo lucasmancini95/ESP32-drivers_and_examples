@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/BATCH_BUILD/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/BATCH_BUILD/operation=append
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/BATCH_BUILD/value=1
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/IDF_PATH/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/IDF_PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/IDF_PATH/value=/home/lucas/ESP/esp-idf
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/PATH/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/PATH/value=/bin\:/home/lucas/.local/bin\:/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/usr/games\:/usr/local/games\:/snap/bin\:/home/lucas/ESP/xtensa-esp32-elf/bin
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/append=true
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1220224273.938214393.1662756144/appendContributed=true
